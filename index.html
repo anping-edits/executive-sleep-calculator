@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leadership Sleep Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Leadership Sleep Calculator</h1>
+      <p>Optimize your performance through better sleep analysis</p>
+    </div>
+
+    <div class="calculator-section">
+      <!-- Sleep Calculator -->
+      <div class="section">
+        <h2>Sleep Efficiency Calculator</h2>
+        <div class="form-group">
+          <label for="timeInBed">Total time spent in bed:</label>
+          <div class="input-group">
+            <input type="number" id="timeInBedHours" placeholder="7" min="0" max="24" />
+            <span class="unit">hours</span>
+            <input type="number" id="timeInBedMinutes" placeholder="0" min="0" max="59" />
+            <span class="unit">minutes</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="timeToFallAsleep">Time to fall asleep:</label>
+          <div class="input-group">
+            <input type="number" id="timeToFallAsleep" placeholder="25" min="0" />
+            <span class="unit">minutes</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="timeAwakeDuringNight">Time awake during night:</label>
+          <div class="input-group">
+            <input type="number" id="timeAwakeDuringNight" placeholder="25" min="0" />
+            <span class="unit">minutes</span>
+          </div>
+        </div>
+
+        <button class="calculate-btn" onclick="calculateSleepEfficiency()">Calculate Sleep Efficiency</button>
+
+        <div id="efficiencyResult" class="result">
+          <h3>Your Sleep Efficiency</h3>
+          <div class="result-value" id="efficiencyPercentage"></div>
+          <div id="sleepBreakdown"></div>
+          <div class="interpretation" id="efficiencyInterpretation"></div>
+        </div>
+      </div>
+
+      <!-- Sleep Cycles -->
+      <div class="section sleep-cycles">
+        <h2>Optimal Sleep Duration Calculator</h2>
+        <div class="cycle-info">
+          <p><strong>Sleep cycles are crucial for leadership performance.</strong></p>
+          <div class="cycle-breakdown">
+            <div class="cycle-item">
+              <h4>5 Complete Cycles</h4>
+              <p><strong>7h 50m</strong></p>
+              <small>Optimal for most leaders</small>
+            </div>
+            <div class="cycle-item">
+              <h4>4 Complete Cycles</h4>
+              <p><strong>6h 20m</strong></p>
+              <small>Minimum recommended</small>
+            </div>
+            <div class="cycle-item">
+              <h4>6 Complete Cycles</h4>
+              <p><strong>9h 20m</strong></p>
+              <small>Extended recovery</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tips -->
+      <div class="section tips">
+        <h2>Leadership Sleep Optimization Tips</h2>
+        <ul class="tip-list">
+          <li>Maintain consistent sleep and wake times</li>
+          <li>Create a pre-sleep routine</li>
+          <li>Keep your bedroom cool and quiet</li>
+          <li>Avoid screens before bedtime</li>
+          <li>Limit caffeine after 2 PM</li>
+          <li>Use your calculated efficiency to improve</li>
+          <li>Track patterns over time</li>
+          <li>Power nap if needed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
