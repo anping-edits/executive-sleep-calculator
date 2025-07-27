@@ -3,15 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Playfair Display', serif;
   background: linear-gradient(135deg, #35555A 0%, #038E92 100%);
   min-height: 100vh;
   padding: 20px;
   color: #35555A;
 }
-
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -21,29 +19,24 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   overflow: hidden;
 }
-
 .header {
   background: linear-gradient(135deg, #038E92 0%, #42B7DA 100%);
   color: white;
   padding: 30px;
   text-align: center;
 }
-
 .header h1 {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
-
 .header p {
   font-size: 1.1rem;
   opacity: 0.95;
 }
-
 .calculator-section {
   padding: 40px;
 }
-
 .section {
   margin-bottom: 40px;
   padding: 30px;
@@ -51,7 +44,6 @@ body {
   border-radius: 15px;
   border-left: 6px solid #42B7DA;
 }
-
 .section h2 {
   color: #35555A;
   font-size: 1.8rem;
@@ -59,30 +51,25 @@ body {
   display: flex;
   align-items: center;
 }
-
 .section h2::before {
   content: "🛌";
   margin-right: 10px;
   font-size: 1.5rem;
 }
-
 .form-group {
   margin-bottom: 20px;
 }
-
 .form-group label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
   color: #35555A;
 }
-
 .input-group {
   display: flex;
   gap: 10px;
   align-items: center;
 }
-
 input[type="number"] {
   padding: 12px;
   border: 2px solid #ddd;
@@ -91,18 +78,15 @@ input[type="number"] {
   width: 100px;
   transition: border-color 0.3s ease;
 }
-
 input[type="number"]:focus {
   outline: none;
   border-color: #42B7DA;
   box-shadow: 0 0 0 3px rgba(66, 183, 218, 0.2);
 }
-
 .unit {
   color: #666;
   font-weight: 500;
 }
-
 .calculate-btn {
   background: linear-gradient(135deg, #038E92 0%, #42B7DA 100%);
   color: white;
@@ -115,12 +99,10 @@ input[type="number"]:focus {
   font-weight: 600;
   margin-top: 20px;
 }
-
 .calculate-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(66, 183, 218, 0.3);
 }
-
 .result {
   margin-top: 30px;
   padding: 25px;
@@ -129,12 +111,10 @@ input[type="number"]:focus {
   border-radius: 12px;
   display: none;
 }
-
 .result.show {
   display: block;
   animation: slideIn 0.5s ease;
 }
-
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -145,18 +125,15 @@ input[type="number"]:focus {
     transform: translateY(0);
   }
 }
-
 .result h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
-
 .result-value {
   font-size: 2.5rem;
   font-weight: 700;
   margin: 10px 0;
 }
-
 .interpretation {
   margin-top: 15px;
   padding: 15px;
@@ -164,30 +141,25 @@ input[type="number"]:focus {
   border-radius: 8px;
   color: white;
 }
-
 .sleep-cycles {
   background: linear-gradient(135deg, #35555A 0%, #038E92 100%);
   color: white;
 }
-
 .sleep-cycles h2::before {
   content: "🌙";
 }
-
 .cycle-info {
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
   border-radius: 10px;
   margin: 20px 0;
 }
-
 .cycle-breakdown {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
   margin-top: 20px;
 }
-
 .cycle-item {
   background: rgba(255, 255, 255, 0.15);
   padding: 15px;
@@ -195,51 +167,41 @@ input[type="number"]:focus {
   text-align: center;
   color: white;
 }
-
 .tips {
   background: linear-gradient(135deg, #42B7DA 0%, #038E92 100%);
   color: white;
   margin-top: 30px;
 }
-
 .tips h2::before {
   content: "💡";
 }
-
 .tip-list {
   list-style: none;
   padding: 0;
 }
-
 .tip-list li {
   padding: 10px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .tip-list li:last-child {
   border-bottom: none;
 }
-
 .tip-list li::before {
   content: "✓ ";
   font-weight: bold;
   margin-right: 8px;
   color: #fff;
 }
-
 @media (max-width: 768px) {
   .header h1 {
     font-size: 2rem;
   }
-
   .calculator-section {
     padding: 20px;
   }
-
   .section {
     padding: 20px;
   }
-
   .input-group {
     flex-direction: column;
     align-items: flex-start;
