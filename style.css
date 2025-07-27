@@ -8,7 +8,7 @@ body {
   background: linear-gradient(135deg, #35555A 0%, #038E92 100%);
   min-height: 100vh;
   padding: 20px;
-  color: black;
+  color: #000000;
 }
 .container {
   max-width: 800px;
@@ -45,7 +45,7 @@ body {
   border-left: 6px solid #42B7DA;
 }
 .section h2 {
-  color: black;
+  color: #000000;
   font-size: 1.8rem;
   margin-bottom: 20px;
   display: flex;
@@ -63,7 +63,7 @@ body {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: black;
+  color: #000000;
 }
 .input-group {
   display: flex;
