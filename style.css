@@ -84,7 +84,7 @@ input[type="number"]:focus {
   box-shadow: 0 0 0 3px rgba(66, 183, 218, 0.2);
 }
 .unit {
-  color: #666;
+  color: #000000;
   font-weight: 500;
 }
 .calculate-btn {
