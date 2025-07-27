@@ -21,7 +21,7 @@ body {
 }
 .header {
   background: linear-gradient(135deg, #038E92 0%, #42B7DA 100%);
-  color: white;
+  color: #000000;
   padding: 30px;
   text-align: center;
 }
@@ -89,7 +89,7 @@ input[type="number"]:focus {
 }
 .calculate-btn {
   background: linear-gradient(135deg, #038E92 0%, #42B7DA 100%);
-  color: white;
+  color: #000000;
   border: none;
   padding: 15px 30px;
   font-size: 1.1rem;
@@ -107,7 +107,7 @@ input[type="number"]:focus {
   margin-top: 30px;
   padding: 25px;
   background: linear-gradient(135deg, #038E92 0%, #35555A 100%);
-  color: white;
+  color: #000000;
   border-radius: 12px;
   display: none;
 }
@@ -139,11 +139,11 @@ input[type="number"]:focus {
   padding: 15px;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 8px;
-  color: white;
+  color: #000000;
 }
 .sleep-cycles {
   background: linear-gradient(135deg, #35555A 0%, #038E92 100%);
-  color: white;
+  color: #000000;
 }
 .sleep-cycles h2::before {
   content: "";
@@ -165,11 +165,11 @@ input[type="number"]:focus {
   padding: 15px;
   border-radius: 8px;
   text-align: center;
-  color: white;
+  color: #000000;
 }
 .tips {
   background: linear-gradient(135deg, #42B7DA 0%, #038E92 100%);
-  color: white;
+  color: #000000;
   margin-top: 30px;
 }
 .tips h2::before {
@@ -190,7 +190,7 @@ input[type="number"]:focus {
   content: "✓ ";
   font-weight: bold;
   margin-right: 8px;
-  color: #fff;
+  color: #000000;
 }
 @media (max-width: 768px) {
   .header h1 {
