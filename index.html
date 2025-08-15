@@ -5,12 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Leadership Sleep Calculator</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .privacy-notice {
+      background: rgba(46, 204, 113, 0.1);
+      border: 2px solid #2ecc71;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .privacy-notice h3 {
+      color: #27ae60;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .privacy-notice p {
+      color: #2c3e50;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .privacy-notice .gdpr-compliance {
+      background: rgba(52, 152, 219, 0.1);
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #2980b9;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <h1>Leadership Sleep Calculator</h1>
       <p>Optimize your performance through better sleep analysis</p>
+    </div>
+
+    <!-- Privacy Notice -->
+    <div class="privacy-notice">
+      <h3>🔒 Your Privacy is Protected</h3>
+      <p><strong>No Data Collection:</strong> This calculator processes all information locally in your browser and does not collect, store, or transmit any personal data.</p>
+      <p><strong>No Cookies:</strong> We don't use tracking cookies or store any information about your sleep patterns.</p>
+      <p><strong>Complete Privacy:</strong> All calculations are performed on your device and remain completely private.</p>
+      <div class="gdpr-compliance">
+        <strong>UK GDPR & Data Protection Act 2018 Compliant:</strong> As no personal data is processed, stored, or transmitted, this tool operates in full compliance with UK data protection laws including GDPR and the Data Protection Act 2018.
+      </div>
     </div>
 
     <div class="calculator-section">
@@ -26,7 +68,6 @@
             <span class="unit">minutes</span>
           </div>
         </div>
-
         <div class="form-group">
           <label for="timeToFallAsleep">Time to fall asleep:</label>
           <div class="input-group">
@@ -34,7 +75,6 @@
             <span class="unit">minutes</span>
           </div>
         </div>
-
         <div class="form-group">
           <label for="timeAwakeDuringNight">Time awake during night:</label>
           <div class="input-group">
@@ -42,9 +82,7 @@
             <span class="unit">minutes</span>
           </div>
         </div>
-
         <button class="calculate-btn" onclick="calculateSleepEfficiency()">Calculate Sleep Efficiency</button>
-
         <div id="efficiencyResult" class="result">
           <h3>Your Sleep Efficiency</h3>
           <div class="result-value" id="efficiencyPercentage"></div>
@@ -52,7 +90,6 @@
           <div class="interpretation" id="efficiencyInterpretation"></div>
         </div>
       </div>
-
       <!-- Sleep Cycles -->
       <div class="section sleep-cycles">
         <h2>Optimal Sleep Duration Calculator</h2>
@@ -77,7 +114,6 @@
           </div>
         </div>
       </div>
-
       <!-- Tips -->
       <div class="section tips">
         <h2>Leadership Sleep Optimization Tips</h2>
@@ -94,6 +130,89 @@
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    function calculateSleepEfficiency() {
+      // Get input values
+      const bedHours = parseInt(document.getElementById('timeInBedHours').value) || 0;
+      const bedMinutes = parseInt(document.getElementById('timeInBedMinutes').value) || 0;
+      const fallAsleepMinutes = parseInt(document.getElementById('timeToFallAsleep').value) || 0;
+      const awakeMinutes = parseInt(document.getElementById('timeAwakeDuringNight').value) || 0;
+
+      // Calculate total time in bed (in minutes)
+      const totalTimeInBed = (bedHours * 60) + bedMinutes;
+      
+      // Calculate actual sleep time
+      const actualSleepTime = totalTimeInBed - fallAsleepMinutes - awakeMinutes;
+      
+      // Calculate sleep efficiency percentage
+      const sleepEfficiency = totalTimeInBed > 0 ? (actualSleepTime / totalTimeInBed * 100) : 0;
+
+      // Display results
+      document.getElementById('efficiencyPercentage').textContent = sleepEfficiency.toFixed(1) + '%';
+      
+      // Create breakdown
+      const breakdown = document.getElementById('sleepBreakdown');
+      breakdown.innerHTML = `
+        <div class="sleep-breakdown">
+          <div class="breakdown-item">
+            <h4>Time in Bed</h4>
+            <div class="breakdown-value">${Math.floor(totalTimeInBed / 60)}h ${totalTimeInBed % 60}m</div>
+          </div>
+          <div class="breakdown-item">
+            <h4>Actual Sleep</h4>
+            <div class="breakdown-value">${Math.floor(actualSleepTime / 60)}h ${actualSleepTime % 60}m</div>
+          </div>
+          <div class="breakdown-item">
+            <h4>Time Awake</h4>
+            <div class="breakdown-value">${fallAsleepMinutes + awakeMinutes}m</div>
+          </div>
+        </div>
+      `;
+
+      // Interpretation
+      let interpretation = '';
+      let color = '';
+      
+      if (sleepEfficiency >= 85) {
+        interpretation = '🌟 Excellent sleep efficiency! You\'re making great use of your time in bed. This indicates high-quality, restorative sleep that supports optimal leadership performance.';
+        color = '#27ae60';
+      } else if (sleepEfficiency >= 75) {
+        interpretation = '✅ Good sleep efficiency. You\'re getting decent rest, but there may be room for small improvements in your sleep routine for even better leadership performance.';
+        color = '#f39c12';
+      } else if (sleepEfficiency >= 65) {
+        interpretation = '⚠️ Fair sleep efficiency. Consider optimizing your sleep environment and routine. Poor sleep efficiency can impact decision-making and leadership effectiveness.';
+        color = '#e67e22';
+      } else {
+        interpretation = '🚨 Low sleep efficiency detected. This suggests significant sleep disruption that could impair your leadership capabilities. Consider consulting a sleep specialist.';
+        color = '#e74c3c';
+      }
+
+      const interpretationElement = document.getElementById('efficiencyInterpretation');
+      interpretationElement.innerHTML = interpretation;
+      interpretationElement.style.borderLeft = `5px solid ${color}`;
+
+      // Show results
+      document.getElementById('efficiencyResult').style.display = 'block';
+      
+      // Smooth scroll to results
+      document.getElementById('efficiencyResult').scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'nearest' 
+      });
+    }
+
+    // Add input validation
+    document.addEventListener('DOMContentLoaded', function() {
+      const inputs = document.querySelectorAll('input[type="number"]');
+      inputs.forEach(input => {
+        input.addEventListener('input', function() {
+          if (this.value < 0) this.value = 0;
+          if (this.id.includes('Minutes') && this.value > 59) this.value = 59;
+          if (this.id === 'timeInBedHours' && this.value > 24) this.value = 24;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
